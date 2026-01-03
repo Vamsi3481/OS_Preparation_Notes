@@ -49,3 +49,18 @@ In C, function arguments are **copies**.
     - **Ready List**: List of tasks ready to run.
     - **Blocked List**: List of tasks waiting for time/events.
     - **Suspended List**: Tasks put to sleep.
+
+## 7. Circular Buffers (Ring Buffers)
+- **What**: A fixed-size array that wraps around.
+- **Why**: The standard data structure for **UART, Audio, and SPI** drivers.
+- **Mechanism**:
+    - `head`: Where we write.
+    - `tail`: Where we read.
+    - `next_index = (current_index + 1) % SIZE`
+- **Benefit**: **O(1)** Enqueue/Dequeue. No shifting of elements needed (unlike a linear array queue).
+
+## 8. Stack vs Queue
+- **Stack (LIFO)**: Last In, First Out.
+    - Used for: Function calls, Local variables.
+- **Queue (FIFO)**: First In, First Out.
+    - Used for: Task Scheduling, Message Passing.
